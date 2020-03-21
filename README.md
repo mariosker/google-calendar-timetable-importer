@@ -13,5 +13,6 @@ Change the [program.json](./program.json) file as you see fitting and run [main.
 <li>dates: insert when there are non school dates (if end_date="" then the event is configured only for one day).</li>
 <li>courses: add courses name, day, start_time, end_time and location).</li>
 </ul>
-**Dates should have the Year/ Month/ Day format
-**Hour should have the 24h format
+
+__Dates should have the Year/ Month/ Day format. </br>
+Hour should have the 24h format.__
