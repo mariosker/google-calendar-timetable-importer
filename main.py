@@ -72,8 +72,6 @@ for i in data["dates"]:
         for single_date in daterange(date1, date2):
             no_school_days.add(single_date)
 
-# print("No school days:", no_school_days)
-
 # Set up weekly program
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 courses_per_day = [[] for i in range(5)]
