@@ -18,6 +18,9 @@ def daterange(start_date, end_date):
         yield start_date + timedelta(n)
 
 
+date_read = lambda d: datetime.strptime(d, '%Y/%m/%d').date()
+time_read = lambda t: datetime.strptime(t, "%H:%M").time()
+
 with open('program.json', encoding='utf8') as f:
     data = json.load(f)
 
@@ -54,19 +57,17 @@ if cal_id == "":
 start_date = data["school-days"][0]["start_date"]
 end_date = data["school-days"][0]["end_date"]
 
-start_date = datetime.strptime(start_date, '%Y/%m/%d').date()
-end_date = datetime.strptime(end_date, '%Y/%m/%d').date()
-# print("School starts  at:", start_date, "and ends at:", end_date)
+start_date = date_read(start_date)
+end_date = date_read(end_date)
 
 # Read no school dates:
 no_school_days = set()
 for i in data["dates"]:
     if i["end_date"] == "":
-        no_school_days.add(
-            datetime.strptime(i["start_date"], '%Y/%m/%d').date())
+        no_school_days.add(date_read(i["start_date"]))
     else:
-        date1 = datetime.strptime(i["start_date"], '%Y/%m/%d').date()
-        date2 = datetime.strptime(i["end_date"], '%Y/%m/%d').date()
+        date1 = date_read(i["start_date"])
+        date2 = date_read(i["end_date"])
 
         for single_date in daterange(date1, date2):
             no_school_days.add(single_date)
@@ -93,19 +94,15 @@ for single_date in daterange(start_date, end_date):
             'colorId': "4" if "ΕΡΓ" in course["course"] else '5',
             'start': {
                 'dateTime':
-                datetime.combine(
-                    single_date,
-                    datetime.strptime(course["start_time"],
-                                      "%H:%M").time()).isoformat(),
+                datetime.combine(single_date,
+                                 time_read(course["start_time"])).isoformat(),
                 'timeZone':
                 'Europe/Athens',
             },
             'end': {
                 'dateTime':
-                datetime.combine(
-                    single_date,
-                    datetime.strptime(course["end_time"],
-                                      "%H:%M").time()).isoformat(),
+                datetime.combine(single_date,
+                                 time_read(course["end_time"])).isoformat(),
                 'timeZone':
                 'Europe/Athens',
             },
