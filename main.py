@@ -54,11 +54,8 @@ if cal_id == "":
     created_calendar = service.calendars().insert(body=calendar).execute()
 
 # Read school duration
-start_date = data["school-days"][0]["start_date"]
-end_date = data["school-days"][0]["end_date"]
-
-start_date = date_read(start_date)
-end_date = date_read(end_date)
+start_date = date_read(data["school-days"][0]["start_date"])
+end_date = date_read(data["school-days"][0]["end_date"])
 
 # Read no school dates:
 no_school_days = set()
@@ -69,22 +66,22 @@ for i in data["dates"]:
         date1 = date_read(i["start_date"])
         date2 = date_read(i["end_date"])
 
-        for single_date in daterange(date1, date2):
-            no_school_days.add(single_date)
+        for each_date in daterange(date1, date2):
+            no_school_days.add(each_date)
 
 # Set up weekly program
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-courses_per_day = [[] for i in range(5)]
+courses_per_day = [[] for i in range(len(weekdays))]
+
 for count, day in enumerate(weekdays):
     (courses_per_day[count]).extend(
-        [i for i in data["courses"] if i["weekday"] == weekdays[count]])
+        [i for i in data["courses"] if i["weekday"] == day])
 
 # Add events
-for single_date in daterange(start_date, end_date):
-    if single_date.weekday() == 5 or single_date.weekday(
-    ) == 6 or single_date in no_school_days:
+for each_date in daterange(start_date, end_date):
+    if (each_date.weekday() in [5, 6]) or (each_date in no_school_days):
         continue
-    courses = courses_per_day[single_date.weekday()]
+    courses = courses_per_day[each_date.weekday()]
     for course in courses:
         event = {
             'summary': course["course"],
@@ -92,14 +89,14 @@ for single_date in daterange(start_date, end_date):
             'colorId': "4" if "ΕΡΓ" in course["course"] else '5',
             'start': {
                 'dateTime':
-                datetime.combine(single_date,
+                datetime.combine(each_date,
                                  time_read(course["start_time"])).isoformat(),
                 'timeZone':
                 'Europe/Athens',
             },
             'end': {
                 'dateTime':
-                datetime.combine(single_date,
+                datetime.combine(each_date,
                                  time_read(course["end_time"])).isoformat(),
                 'timeZone':
                 'Europe/Athens',
