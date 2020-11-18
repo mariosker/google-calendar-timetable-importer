@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Ηλεκτρολογικό Σχέδιο",
+    "weekday": "wednessday",
+    "start_time": "15:15",
+    "end_time": "17:00",
+    "location": "",
+    "type": "theory",
+    "description": "https://centralntua.webex.com/centralntua/j.php?MTID=me7fe3d7033aec4e09a44ba636fd24608"
+  },
+  {
+    "name": "Ηλεκτρολογικό Σχέδιο",
+    "weekday": "friday",
+    "start_time": "10:45",
+    "end_time": "12:30",
+    "location": "",
+    "type": "lab",
+    "description": ""
+  },
+  {
+    "name": "Αλληλεπίδραση Ανθρώπου-Υπολογιστή",
+    "weekday": "monday",
+    "start_time": "12:45",
+    "end_time": "14:30",
+    "location": "",
+    "type": "theory",
+    "description": "MS Teams"
+  },
+  {
+    "name": "Αλληλεπίδραση Ανθρώπου-Υπολογιστή",
+    "weekday": "wednessday",
+    "start_time": "12:45",
+    "end_time": "14:00",
+    "location": "",
+    "type": "lab",
+    "description": "MS Teams"
+  },
+  {
+    "name": "Αλγόριθμοι & Πολυπλοκότητα",
+    "weekday": "monday",
+    "start_time": "15:00",
+    "end_time": "17:00",
+    "location": "",
+    "type": "theory",
+    "description": "https://centralntua.webex.com/centralntua/j.php?MTID=m9ee2021e2f48378afcd1646a1b45bdff"
+  },
+  {
+    "name": "Αλγόριθμοι & Πολυπλοκότητα",
+    "weekday": "thursday",
+    "start_time": "17:00",
+    "end_time": "19:00",
+    "location": "",
+    "type": "theory",
+    "description": "https://centralntua.webex.com/centralntua/j.php?MTID=m2ca2f3dfcc6ac539d56967a49b527a8c"
+  },
+  {
+    "name": "Συστήματα Αποφάσεων",
+    "weekday": "monday",
+    "start_time": "17:15",
+    "end_time": "20:00",
+    "location": "",
+    "type": "theory",
+    "description": "MS Teams"
+  },
+  {
+    "name": "Συστήματα Αποφάσεων",
+    "weekday": "tuesday",
+    "start_time": "17:15",
+    "end_time": "20:00",
+    "location": "",
+    "type": "theory",
+    "description": "MS Teams"
+  },
+  {
+    "name": "Τεχνολογία Λογισμικού",
+    "weekday": "wednessday",
+    "start_time": "17:15",
+    "end_time": "21:00",
+    "location": "",
+    "type": "theory",
+    "description": "MS Teams"
+  },
+  {
+    "name": "Τεχνητή Νοημοσύνη",
+    "weekday": "thursday",
+    "start_time": "15:15",
+    "end_time": "17:00",
+    "location": "",
+    "type": "theory",
+    "description": "MS Teams"
+  },
+  {
+    "name": "Τεχνητή Νοημοσύνη",
+    "weekday": "friday",
+    "start_time": "12:45",
+    "end_time": "14:30",
+    "location": "",
+    "type": "theory",
+    "description": "MS Teams"
+  }
+]
