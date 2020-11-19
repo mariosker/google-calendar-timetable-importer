@@ -13,6 +13,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 DATE_FORMAT = '%d/%m/%Y'
+ΤΙΜΕΖΟΝΕ = "Europe/Athens"
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 service = None
@@ -115,11 +116,11 @@ def add_course(day, course):
         'description': course['description'],
         'start': {
             'dateTime': start_date.isoformat(),
-            'timeZone': 'Europe/Athens',
+            'timeZone': ΤΙΜΕΖΟΝΕ,
         },
         'end': {
             'dateTime': end_date.isoformat(),
-            'timeZone': 'Europe/Athens',
+            'timeZone': ΤΙΜΕΖΟΝΕ,
         }
     }
     event = service.events().insert(
